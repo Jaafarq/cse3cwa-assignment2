@@ -1,0 +1,86 @@
+:root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #111111;
+    --muted: #666;
+    --border: #ddd;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --fg: #f0f3f7;
+      --muted: #9aa4b2;
+      --border: #2a2f3a;
+    }
+  }
+  
+  * { box-sizing: border-box; }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    line-height: 1.5;
+  }
+  
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; }
+  
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.25rem;
+  }
+  
+  .header, .footer {
+    border-bottom: 1px solid var(--border);
+  }
+  .footer { border-top: 1px solid var(--border); border-bottom: none; }
+  
+  .skip-link {
+    position: absolute; left: -9999px; top: -9999px;
+  }
+  .skip-link:focus {
+    left: 0; top: 0; background: #ffd52e; color: #000; padding: 8px 12px;
+  }
+  
+  .badge {
+    position: fixed; top: 8px; left: 8px;
+    background: #2563eb; color: white; border-radius: 999px; padding: 6px 10px; font-weight: 600;
+    z-index: 50;
+  }
+  
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .menu {
+    display: flex; gap: 0.75rem; align-items: center;
+  }
+  .menu a[aria-current="page"] { text-decoration: underline; }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  @media (max-width: 800px) {
+    .menu { display: none; }
+    .menu.open { display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .hamburger { display: inline-flex; }
+  }
+  
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+  }
+  
+  textarea.code {
+    width: 100%; height: 320px; resize: vertical; padding: 12px;
+    border: 1px solid var(--border); border-radius: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  

@@ -1,0 +1,25 @@
+// Prisma + SQLite schema for saving generated HTML outputs and simple telemetry logs
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Output {
+  id        String   @id @default(cuid())
+  title     String
+  html      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Telemetry {
+  id        String   @id @default(cuid())
+  route     String
+  method    String
+  ts        DateTime @default(now())
+  meta      String?
+}
